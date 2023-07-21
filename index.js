@@ -8,9 +8,11 @@ httpServer.on("connection", (connection) => {
 });
 
 httpServer.on("request", (req, res) => {
-  res.setHeader("Content-Type", "application/json");
+  res.setHeader("Content-Type", "text/html");
   res.writeHead(200);
-  res.end(`{"foo": "bar"}`);
+  res.end(
+    `<html><head><title>html</title></head><body><h1>HTML</h1></body></html>`
+  );
 });
 
 function countConnections() {

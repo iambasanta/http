@@ -25,3 +25,7 @@ Press enter to execute the `curl` command. You should see the message `CONNECTED
 ##### Via `web browser`
 
 To test your HTTP server, open your web browser and enter `http://localhost:8000` in the address bar. You should see the message `CONNECTED` printed in the console where your server is running. This indicates that a connection has been established with the server.
+
+#### **NOTE**
+
+> When you make a request from the web browser, server logs additional request (in our example we see `CONNECTED` twice in our console); this is because browser makes a separate request to the server to fetch the website's favicon

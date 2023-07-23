@@ -12,12 +12,28 @@ httpServer.on("request", (req, res) => {
   const userAgent = req.headers["user-agent"];
   const log = `${Date.now()}: NEW REQUEST FROM: ${userAgent}\n`;
   fs.appendFile("log.txt", log, (error, data) => {
-    res.setHeader("Content-Type", "text/html");
-    res.writeHead(200);
-    res.write(
-      `<html><head><title>html</title></head><body><h1>HTML</h1></body></html>`
-    );
-    res.end();
+    switch (req.url) {
+      case "/":
+        res.setHeader("Content-Type", "text/html");
+        res.writeHead(200);
+        res.write(
+          `<html><head><title>html</title></head><body><h1>HTML</h1></body></html>`
+        );
+        res.end();
+        break;
+      case "/foo":
+        res.setHeader("Content-Type", "application/json");
+        res.writeHead(200);
+        res.write(`{ foo: "bar" }`);
+        res.end();
+        break;
+
+      default:
+        res.writeHead(404);
+        res.write(`{ error: "404 not found" }`);
+        res.end();
+        break;
+    }
   });
 });
 

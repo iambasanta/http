@@ -1,0 +1,15 @@
+{
+  "name": "bun-http",
+  "module": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "bun index.ts",
+    "watch": "bun --hot index.ts"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
